@@ -1,6 +1,6 @@
 package com.company;
 import java.util.Scanner;
-import  java.lang.Math;
+
 
 
 public class zad1_d {
@@ -9,17 +9,20 @@ public class zad1_d {
         int ilosc=0;
 
         Scanner in = new Scanner(System.in);
-        System.out.printf("podaj liczbe petli:");
+        System.out.print("podaj liczbe petli:");
         int n = in.nextInt();
         System.out.println(n);
-        for (int i=1;i<n;i++){
-            System.out.printf("poda liczbe:");
-            int liczba = in.nextInt();
-            if (Math.sqrt(liczba)%2==0)
-                ilosc++;
+        int[] tab=new int[n];
 
+        for (int i=0;i<n;i++){
+         int liczba = in.nextInt();
+         tab[i]=liczba;
         }
-        System.out.println("ilosc: "+ilosc);
-
+        for (int i=1; i<n-1;i++)
+        {
+            if (tab[i]<(tab[i-1]+tab[i+1])/2)
+                ilosc++;
+        }
+        System.out.println("ilosc:"+ilosc);
     }
 }
