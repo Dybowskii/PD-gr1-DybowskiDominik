@@ -1,30 +1,35 @@
 package com.company;
-import java.util.Random;
+
+import java.util.Scanner;
 
 public class zad1_g {
 
 
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int lewy = in.nextInt();
+        int prawy = in.nextInt();
+        if (n >= 1 && n <= 100) {
+            int[] tab = new int[n];
+            System.out.println("tablica przed zmiana: ");
+            for (int i = 0; i < n; i++) {
 
-        int n = Randomnumber.getRandomNumber(0,10);
-        System.out.println(n);
-        int[] tab = new int[n];
-        for(int i=0;i<n;i++)
-        {
-            tab[i]= Randomnumber.getRandomNumber(-999,999);
-            System.out.println(tab[i]);
-            if(tab[i]>0)
-                tab[i]=1;
-            else if(tab[i]<0)
-                tab[i]=-1;
+                tab[i] = Randomnumber.getRandomNumber(-999, 999);
+                System.out.println(tab[i]);
+            }
+            int pom;
+            int licznik = 1;
+            System.out.println("tablica po zmianie");
+            for (int i = lewy-1; i < prawy/2; i++) {
+                pom = tab[i];
+                tab[i] = tab[prawy - licznik];
+                tab[prawy - licznik] = pom;
+                licznik++;
+            }
+            for (int i = 0; i < n; i++) {
+                System.out.println(tab[i]);
+            }
         }
-        System.out.println("tablica po zmianie");
-
-        for(int i=0;i<n;i++)
-        {
-            System.out.println(tab[i]);
-        }
-
     }
 }
-
