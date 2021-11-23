@@ -28,7 +28,7 @@ public class IntegerSet {
 
 
     }
-    public void  union(boolean[] tab1, boolean[] tab2)
+    public IntegerSet  union(boolean[] tab1, boolean[] tab2)
     {
         IntegerSet tab3 = new IntegerSet();
         for (int i=0;i<100;i++)
@@ -36,9 +36,10 @@ public class IntegerSet {
             if(tab1[i]==true || tab2[i]==true)
                 tab3.tab[i]=true;
         }
-        tab3.ToString();
+
+        return tab3;
     }
-    public void  intersection(boolean[] tab1, boolean[] tab2)
+    public IntegerSet  intersection(boolean[] tab1, boolean[] tab2)
     {
         IntegerSet tab3 = new IntegerSet();
         for (int i=0;i<100;i++)
@@ -46,7 +47,21 @@ public class IntegerSet {
             if(tab1[i]==true && tab2[i]==true)
                 tab3.tab[i]=true;
         }
-        tab3.ToString();
+
+        return tab3;
+    }
+    public void equal (IntegerSet tab1, IntegerSet tab2)
+    {
+        for (int i = 0; i<100;i++)
+        {
+            if (tab1.tab[i]!=tab2.tab[i])
+            {
+                System.out.println("nie sa takie same");
+                return;
+            }
+        }
+        System.out.println("sa takie same");
+
     }
 
 }
